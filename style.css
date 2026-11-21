@@ -1,0 +1,168 @@
+
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("ttf/BarlowCondensed-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: italic;
+  src: url("ttf/BarlowCondensed-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: bold;
+  src: url("ttf/BarlowCondensed-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: italic;
+  font-weight: bold;
+  src: url("ttf/BarlowCondensed-BoldItalic.ttf") format("truetype");
+}
+
+/* this could use some cleanup */
+
+
+body {
+    color: black;
+    background-color: #FFFDF8;
+    font-family: "Barlow Condensed", sans-serif;
+    margin: 0;
+    overscroll-behavior: none;
+    overflow: scroll;
+    min-width: 400px;
+}
+
+a {
+    color: #6EE;
+    text-decoration: none;
+}
+
+a:hover {
+  color: #D53939;
+}
+
+#home {
+    color: black;
+    text-decoration: none;
+}
+
+#navigation {
+    width: 90vw;
+    margin-left: 2.5vw;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#navigation h2 {
+  font-size: 1.4em;
+}
+
+#carosel {
+    margin-left: 2.5vw;
+    height: calc(65vh + 2.5rem);
+    position: absolute;
+    top: 20vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#carosel a {
+  color: #D53939;
+}
+
+#ticker {
+    height: 1rem;
+    margin-bottom: 1.5rem; /* this is the tricky part */
+}
+
+#ticker > p {
+    letter-spacing: 0.05em;
+    font-style: italic;
+}
+
+#photostrip {
+    display: flex;
+    height: 60vh;
+}
+
+#photostrip img {
+    height: 100%;
+    border: 0px solid white;
+    margin-right: 1vw;
+}
+
+#carosel #end-card {
+    width: 100vw;
+}
+
+#end-card #column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.5vw;
+}
+
+#end-card h6 {
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+#footer {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh; /* this is kind of a hack tbh */
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 0.75em;
+    z-index: -1; /* ...and this is the fix, i guess */
+}
+
+#footer h3 {
+    padding-right: 20px;
+}
+
+
+/* switch to a vertical orientation when the screen is too small to fit everything horizontally */
+/* there's probably a more precise breakpoint here */
+@media (max-width: 32em) {
+  #navigation {
+    flex-direction: column;
+  }
+  #navigation h1 {
+    margin-bottom: 0.2em;
+  }
+  #navigation h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+  #carosel {
+    top: 25vh;
+  }
+}
+
+/* probably overkill but i know a lot of people use huge, huge fonts because they can't see well */
+@media (max-height: 32em) {
+  #navigation h2 {
+    display: none;
+  }
+  #footer {
+    display: none;
+  }
+  #carosel {
+    top: 20vh;
+    overflow: hide;
+  }
+  #end-card h2 {
+    margin: 0;
+  }
+  #end-card h6 {
+    font-size: 0.6em;
+  }
+}
